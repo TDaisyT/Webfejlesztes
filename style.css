@@ -1,0 +1,12 @@
+body{
+    background-color: black;
+    background-image: url('crystalball.jpg');
+    background-size: 65%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
