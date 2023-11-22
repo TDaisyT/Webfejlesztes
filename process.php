@@ -38,7 +38,6 @@ for ($i = 0; $i < strlen($bintohex); $i += 2) {
     }
 }
 
-//echo "<pre>" . $text . "</pre>";
 $lines = explode("\n", $text);
 
 foreach ($lines as $line) {
@@ -49,9 +48,7 @@ foreach ($lines as $line) {
     $user = array('email' => $parts[0], 'password' => $parts[1]);
     $users[] = $user;
 }
-foreach ($users as $user2) {
-    echo "Email: " . $user2['email'] . ", Password: " . $user2['password'] . "<br>";
-}
+
 
 
 fclose($file);
@@ -83,7 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['color'] = $foundUser["Titkos"];
             header("Location: result.php");
             exit();
-            //echo "Kedvenc szín " . $foundUser["Titkos"];
         } else {
             header("Location: password.php");
         }
