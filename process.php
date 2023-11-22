@@ -85,11 +85,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
             //echo "Kedvenc szín " . $foundUser["Titkos"];
         } else {
-            echo "Helytelen jelszó";
-            header("Refresh:3; url=https://www.police.hu/");
+            header("Location: password.php");
         }
     } else {
-        echo "Nincs ilyen felhasználó";
+        echo '<script>
+        alert("There is no such user");
+        window.location.href = "index.php";
+    </script>';
     }
 }
 
