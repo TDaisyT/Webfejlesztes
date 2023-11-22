@@ -18,7 +18,6 @@ $file = fopen("password.txt", "r");
 $getfile = file_get_contents("password.txt");
 $bintohex = bin2hex($getfile);
 //convert to dec and use keys
-$hextodec = "";
 $text = "";
 $keys = array(5, -14, 31, -9, 3);
 $keysindex = 0;
@@ -31,7 +30,6 @@ for ($i = 0; $i < strlen($bintohex); $i += 2) {
     } else {
         $converter = $converter - $keys[$keysindex];
         $text = $text . chr($converter);
-        $hextodec =  $hextodec . $converter . " ";
         $keysindex++;
         if ($keysindex >= count($keys)) {
             $keysindex = 0;
@@ -40,6 +38,21 @@ for ($i = 0; $i < strlen($bintohex); $i += 2) {
 }
 
 //echo "<pre>" . $text . "</pre>";
+$lines = explode("\n", $text);
+
+foreach ($lines as $line) {
+    if (empty($line)) { //ha jelenlegi sor üres, rálép a kövire
+        continue;
+    }
+    $parts = explode("*", $line);
+    $user = array('email' => $parts[0], 'password' => $parts[1]);
+    $users[] = $user;
+}
+foreach ($users as $user2) {
+    echo "Email: " . $user2['email'] . ", Password: " . $user2['password'] . "<br>";
+}
+
+
 fclose($file);
 
 
