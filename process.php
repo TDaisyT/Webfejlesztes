@@ -79,7 +79,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if ($isPasswordCorrect) {
             $foundUser = $row;
-            echo "Kedvenc szín " . $foundUser["Titkos"];
+            session_start();
+            $_SESSION['color'] = $foundUser["Titkos"];
+            header("Location: result.php");
+            exit();
+            //echo "Kedvenc szín " . $foundUser["Titkos"];
         } else {
             echo "Helytelen jelszó";
             header("Refresh:3; url=https://www.police.hu/");
