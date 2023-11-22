@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         body {
-            background-image: url(ps.jpg);
+            background-image: url(pics/ps.jpg);
             background-repeat: no-repeat;
             background-position: center;
             margin: 0;

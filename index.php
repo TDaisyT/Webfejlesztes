@@ -7,7 +7,7 @@
     <title>Login Form</title>
     <style>
         body {
-            background-image: url(background.jpg);
+            background-image: url(pics/background.jpg);
             min-height: 90vh;
             background-size: cover;
             background-position: center;
