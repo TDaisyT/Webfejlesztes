@@ -3,6 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "adatok";
+$table = "tabla";
 
 $conn = new mysqli($servername, $username, $password, $dbname); //kapcsolat létrehozása
 
@@ -54,6 +55,39 @@ foreach ($users as $user2) {
 
 
 fclose($file);
+
+
+//Űrlap ellenőrzés
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $foundUser = null;
+
+
+    $sql = "SELECT * FROM $table WHERE Username = '$username'";
+    $result = $conn->query($sql);
+
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc(); // $row létrehozása
+        $isPasswordCorrect = false;
+        foreach ($users as $user) {
+            if ($user['email'] == $row['Username'] && $user['password'] == $password) {
+                $isPasswordCorrect = true;
+                break;
+            }
+        }
+        if ($isPasswordCorrect) {
+            $foundUser = $row;
+            echo "Kedvenc szín " . $foundUser["Titkos"];
+        } else {
+            echo "Helytelen jelszó";
+            header("Refresh:3; url=https://www.police.hu/");
+        }
+    } else {
+        echo "Nincs ilyen felhasználó";
+    }
+}
 
 
 
