@@ -48,6 +48,9 @@ foreach ($lines as $line) {
     $user = array('email' => $parts[0], 'password' => $parts[1]);
     $users[] = $user;
 }
+foreach ($users as $user) {
+    echo $user['email'] . " " . $user['password'];
+}
 
 
 

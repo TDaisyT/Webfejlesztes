@@ -82,7 +82,7 @@
     <div style="position: absolute; bottom: 0; padding: 20px;">
 
         <form action="index.php">
-            <input type="submit" value="Go back to the beginning" style="padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 12px;">
+            <input type="submit" value="Go back to the beginning" style="padding: 10px 20px; font-size: 16px; border-radius: 12px;">
         </form>
     </div>
 </body>
